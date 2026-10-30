@@ -9,8 +9,15 @@ src/widgets/out/
 
 # Environment files
 .env
-.env.local
-.env.*.local
+.env.*
+!.env.example
+*.env
+*.secrets
+*.secret
+credentials.json
+tokens.json
+*.pem
+*.key
 
 # IDE
 .idea/
