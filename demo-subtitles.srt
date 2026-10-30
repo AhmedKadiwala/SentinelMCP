@@ -1,0 +1,87 @@
+1
+00:00:00,000 --> 00:00:06,500
+Hi everyone! Welcome to our demonstration of SentinelMCP.
+
+2
+00:00:06,800 --> 00:00:15,000
+Over the past year, autonomous AI agents have gained direct access to production databases and cloud APIs through the Model Context Protocol.
+
+3
+00:00:15,300 --> 00:00:24,000
+However, without runtime security, indirect prompt injections, tool poisoning, and credential leaks can compromise enterprise systems in seconds.
+
+4
+00:00:24,300 --> 00:00:35,500
+That's why we built SentinelMCP: the world's first zero-trust runtime firewall and AI-native Security Operations copilot, engineered natively on the NitroStack platform.
+
+5
+00:00:35,800 --> 00:00:43,000
+Let's look at the engineering quality. In our terminal, we execute our comprehensive automated test suite.
+
+6
+00:00:43,300 --> 00:00:52,500
+SentinelMCP runs 38 rigorous security checks covering credential scrubbing, prompt injection scoring, active quarantining, and manifest auditing.
+
+7
+00:00:52,800 --> 00:00:58,000
+All 38 test suites pass with 100 percent precision!
+
+8
+00:00:58,300 --> 00:01:07,500
+Even better, our 100-iteration performance benchmark processes in just 5.4 milliseconds, averaging an incredible 0.05 milliseconds per tool invocation.
+
+9
+00:01:07,800 --> 00:01:14,000
+Now, let's watch a live attack in NitroStudio. We simulate an autonomous agent receiving an untrusted ticket containing an indirect prompt injection.
+
+10
+00:01:14,300 --> 00:01:23,500
+The attacker attempts to execute a database query while smuggling a live AWS credential and a destructive DROP TABLE command.
+
+11
+00:01:23,800 --> 00:01:34,300
+SentinelMCP intercepts the call in less than 1 millisecond. The execution fails closed, protecting the production database completely.
+
+12
+00:01:34,600 --> 00:01:41,500
+Because SentinelMCP is built on NitroStack, it does not just return raw error text.
+
+13
+00:01:41,800 --> 00:01:49,500
+It instantly mounts an interactive Generative UI Threat Radar widget inside NitroStudio.
+
+14
+00:01:49,800 --> 00:02:02,300
+The security operator immediately sees the risk gauge flashing crimson at 94 out of 100, breaking down the exact OWASP attack vectors in real-time.
+
+15
+00:02:02,600 --> 00:02:08,500
+Next, the operator inspects the Payload Diff Widget. On the left side is the raw, hostile payload.
+
+16
+00:02:08,800 --> 00:02:18,500
+On the right, our Data Loss Prevention engine has scrubbed the secret and flagged the prompt injection,
+
+17
+00:02:18,800 --> 00:02:28,300
+complete with SHA-256 cryptographic hashes for non-repudiation and SOC 2 compliance.
+
+18
+00:02:28,600 --> 00:02:35,500
+With one click on the widget, the rogue tool is quarantined.
+
+19
+00:02:35,800 --> 00:02:43,000
+Any future attempt by the agent to call that tool is immediately denied with an access denied message.
+
+20
+00:02:43,300 --> 00:02:50,500
+The live audit feed streams immutable records for SOC-2 and ISO 27001 compliance.
+
+21
+00:02:50,800 --> 00:02:58,000
+Check out our full open-source code and tests at github.com/AhmedKadiwala/SentinelMCP.
+
+22
+00:02:58,300 --> 00:03:06,000
+SentinelMCP makes production AI safe and enterprise-ready today on NitroStack. Thank you!

@@ -1,0 +1,113 @@
+{
+  "version": "1.0.0",
+  "widgets": [
+    {
+      "uri": "/threat-radar-widget",
+      "name": "Threat Radar Widget",
+      "description": "Visual risk gauge, threat matrix breakdown, and 1-click quarantine trigger for intercepted MCP tool calls",
+      "examples": [
+        {
+          "name": "Critical SQL Injection & AWS Key Threat",
+          "description": "Shows an intercepted tool call with an exposed AWS secret and destructive SQL command",
+          "data": {
+            "tool_name": "execute_sql_query",
+            "verdict": "BLOCKED",
+            "risk_score": 94,
+            "findings": [
+              {
+                "threat_type": "SECRET_EXFILTRATION",
+                "severity": "CRITICAL",
+                "parameter": "query",
+                "matched_pattern": "AWS Access Key ID",
+                "description": "Exposed AWS Access Key ID (AKIA...) in tool arguments"
+              },
+              {
+                "threat_type": "SQL_INJECTION",
+                "severity": "CRITICAL",
+                "parameter": "query",
+                "matched_pattern": "Destructive SQL Drop Table",
+                "description": "Direct SQL schema destruction command: DROP TABLE users"
+              }
+            ],
+            "requires_human_approval": true,
+            "sanitized_parameters": {
+              "query": "SELECT * FROM users WHERE token='[REDACTED_AWS_KEY]'; DROP TABLE users; --"
+            },
+            "redactions_count": 1,
+            "summary": "Tool evaluated as BLOCKED (Risk: 94/100). Detected 2 threat finding(s).",
+            "latency_ms": 12.8
+          }
+        },
+        {
+          "name": "Safe Clean Tool Call",
+          "description": "Shows a clean tool execution with zero threats detected",
+          "data": {
+            "tool_name": "fetch_user_profile",
+            "verdict": "SAFE",
+            "risk_score": 10,
+            "findings": [],
+            "requires_human_approval": false,
+            "sanitized_parameters": {
+              "user_id": "usr_9921"
+            },
+            "redactions_count": 0,
+            "summary": "Clean parameters; no adversarial patterns or secrets detected.",
+            "latency_ms": 4.1
+          }
+        }
+      ],
+      "tags": ["security", "radar", "firewall", "quarantine", "threats"]
+    },
+    {
+      "uri": "/payload-diff-widget",
+      "name": "Payload Diff Widget",
+      "description": "Side-by-side visual diff showing raw unscrubbed parameters vs sanitized parameters with zero secret leakage",
+      "examples": [
+        {
+          "name": "Multi-Token Secret Redaction",
+          "description": "Demonstrates scrubbing of AWS keys, GitHub tokens, and Stripe keys",
+          "data": {
+            "redacted_count": 3,
+            "redactions": [
+              {
+                "patternName": "AWS Access Key ID",
+                "category": "CLOUD_CREDENTIAL",
+                "placeholder": "[REDACTED_AWS_KEY]",
+                "occurrences": 1,
+                "severity": "CRITICAL"
+              },
+              {
+                "patternName": "GitHub Personal Access Token",
+                "category": "API_KEY",
+                "placeholder": "[REDACTED_GITHUB_TOKEN]",
+                "occurrences": 1,
+                "severity": "CRITICAL"
+              },
+              {
+                "patternName": "Stripe API Key",
+                "category": "API_KEY",
+                "placeholder": "[REDACTED_STRIPE_KEY]",
+                "occurrences": 1,
+                "severity": "CRITICAL"
+              }
+            ],
+            "raw_payload": {
+              "aws_key": "AKIAIOSFODNN7EXAMPLE",
+              "github_pat": "ghp_abcdef1234567890abcdef1234567890abcd",
+              "stripe_key": "sk_test_mock_placeholder_key"
+            },
+            "sanitized_payload": {
+              "aws_key": "[REDACTED_AWS_KEY]",
+              "github_pat": "[REDACTED_GITHUB_TOKEN]",
+              "stripe_key": "[REDACTED_STRIPE_KEY]"
+            },
+            "payload_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "latency_ms": 3.8
+          }
+        }
+      ],
+      "tags": ["dlp", "diff", "redaction", "secrets", "compliance"]
+    }
+  ],
+  "generatedAt": "2026-10-30T15:45:00.000Z"
+}

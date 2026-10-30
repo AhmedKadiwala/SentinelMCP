@@ -1,0 +1,28 @@
+{
+  "name": "sentinel-mcp-workspace",
+  "version": "1.0.0",
+  "description": "SentinelMCP — Autonomous AI Agent Security Operations Center & Zero-Trust MCP Firewall for NitroStack × MCP To The Moon Hackathon",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm --prefix sentinel-mcp run dev",
+    "build": "npm --prefix sentinel-mcp run build",
+    "start": "npm --prefix sentinel-mcp start",
+    "test": "node sentinel-mcp/tests/run-all-tests.mjs",
+    "pack": "npm --prefix sentinel-mcp run pack",
+    "install:all": "npm --prefix sentinel-mcp run install:all"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "nitrostack",
+    "cybersecurity",
+    "ai-firewall",
+    "dlp",
+    "prompt-injection",
+    "zero-trust",
+    "generative-ui"
+  ],
+  "author": "SentinelMCP Team",
+  "license": "Apache-2.0"
+}
