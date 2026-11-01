@@ -13,8 +13,8 @@
 
 * **Project Title:** SentinelMCP
 * **Category:** AI Cybersecurity, Agent Governance & Enterprise Observability
-* **Live Deployment URL:** `https://sentinel-mcp.nitrostack.app` (NitroCloud Serverless Endpoint)
-* **Local SSE Endpoint:** `http://localhost:3000/sse`
+* **Deployment Package:** `sentinel-mcp.zip` (Optimized bundle via `nitrostack pack`, ready for NitroCloud)
+* **Local SSE Endpoint:** `http://localhost:3000/sse` (Tested via NitroStudio)
 * **Generative UI Dashboard:** `http://localhost:3001`
 * **GitHub Repository:** [https://github.com/AhmedKadiwala/SentinelMCP](https://github.com/AhmedKadiwala/SentinelMCP)
 * **Automated Test Results:** 38 / 38 Tests Passing (100% Pass Rate, 0.05ms average latency)
