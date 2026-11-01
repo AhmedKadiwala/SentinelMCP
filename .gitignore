@@ -43,3 +43,22 @@ id_ed25519*
 Thumbs.db
 .vscode/
 .idea/
+
+# Added by nitrostack pack
+src/widgets/node_modules/
+src/widgets/.next/
+src/widgets/out/
+.env.local
+.env.*.local
+*.swp
+*.swo
+*~
+pids/
+*.pid
+*.seed
+*.pid.lock
+coverage/
+.nyc_output/
+.npm/
+.eslintcache
+.git/

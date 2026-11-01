@@ -1,16 +1,34 @@
 {
-  "name": "sentinel-mcp-workspace",
+  "name": "sentinel-mcp",
   "version": "1.0.0",
-  "description": "SentinelMCP — Autonomous AI Agent Security Operations Center & Zero-Trust MCP Firewall for NitroStack × MCP To The Moon Hackathon",
   "private": true,
   "type": "module",
+  "description": "SentinelMCP — Autonomous AI Agent Security Operations Center & Zero-Trust MCP Firewall for NitroStack × MCP To The Moon Hackathon",
+  "bin": {
+    "nitrostack": "./bin/nitrostack.js",
+    "nitrostack-cli": "./bin/nitrostack.js"
+  },
   "scripts": {
-    "dev": "npm --prefix sentinel-mcp run dev",
-    "build": "npm --prefix sentinel-mcp run build",
-    "start": "npm --prefix sentinel-mcp start",
-    "test": "node sentinel-mcp/tests/run-all-tests.mjs",
-    "pack": "npm --prefix sentinel-mcp run pack",
-    "install:all": "npm --prefix sentinel-mcp run install:all"
+    "dev": "nitrostack-cli dev",
+    "build": "nitrostack-cli build",
+    "start": "nitrostack-cli start",
+    "start:prod": "nitrostack-cli start",
+    "upgrade": "nitrostack-cli upgrade",
+    "install:all": "nitrostack-cli install",
+    "widget": "npm --prefix src/widgets",
+    "pack": "nitrostack-cli pack",
+    "test": "node tests/run-all-tests.mjs"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "@nitrostack/core": "^1",
+    "zod": "^3.25.0",
+    "@modelcontextprotocol/ext-apps": "^1.0.0"
+  },
+  "devDependencies": {
+    "@nitrostack/cli": "^1",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.3.3"
   },
   "keywords": [
     "mcp",
@@ -24,5 +42,8 @@
     "generative-ui"
   ],
   "author": "SentinelMCP Team",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "nitrostack": {
+    "skillsVersion": "1.0.0"
+  }
 }
